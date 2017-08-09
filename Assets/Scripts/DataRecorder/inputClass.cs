@@ -43,7 +43,7 @@ public class inputClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
 		/*compas= Input.compass;
 		compas.enabled=true;
 
@@ -62,6 +62,7 @@ public class inputClass : MonoBehaviour {
 
 		//xd.dataXmms.Add
 		dataXmm1=new dataXmm();
+		//Debug.Log(recPath);
 			
 	}
 

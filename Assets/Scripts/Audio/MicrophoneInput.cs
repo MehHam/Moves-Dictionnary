@@ -16,7 +16,7 @@ public class MicrophoneInput : MonoBehaviour {
 	private int samples = 8192; 
 	private AudioSource audioSource;
 
-	void Start() {
+	public void Start() {
 		
 
 		//get components you'll need
@@ -46,14 +46,15 @@ public class MicrophoneInput : MonoBehaviour {
 		UpdateMicrophone ();
 	}
 
-	void UpdateMicrophone(){
+	public void UpdateMicrophone(){
 		audioSource.Stop(); 
 		//Start recording to audioclip from the mic
 		audioSource.clip = Microphone.Start(microphone, true, 10, audioSampleRate);
-		audioSource.loop = true; 
+		audioSource.loop = true;
+		//audioSource.volume = 0.11f;
 		// Mute the sound with an Audio Mixer group becuase we don't want the player to hear it
 
-		//Debug.Log(Microphone.IsRecording(microphone).ToString());
+
 
 		if (Microphone.IsRecording (microphone)) { //check that the mic is recording, otherwise you'll get stuck in an infinite loop waiting for it to start
 			while (!(Microphone.GetPosition (microphone) > 0)) {

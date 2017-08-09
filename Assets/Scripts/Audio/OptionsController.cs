@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -7,7 +8,7 @@ public class OptionsController : MonoBehaviour {
 	public Dropdown microphone;
 	public Slider sensitivitySlider, thresholdSlider;
 	public GameObject settingsPanel;
-	public GameObject openButton;
+	//public GameObject openButton;
 
 	private bool panelActive = false;
 
@@ -16,6 +17,7 @@ public class OptionsController : MonoBehaviour {
 		microphone.value = PlayerPrefsManager.GetMicrophone ();
 		sensitivitySlider.value = PlayerPrefsManager.GetSensitivity ();
 		thresholdSlider.value = PlayerPrefsManager.GetThreshold ();
+		SetDefaults();
 	}
 
 	public void SaveAndExit (){
@@ -29,8 +31,8 @@ public class OptionsController : MonoBehaviour {
 
 	public void SetDefaults(){
 		microphone.value = 0;
-		sensitivitySlider.value = 100f;
-		thresholdSlider.value = 0.001f;
+		sensitivitySlider.value = 500f;
+		thresholdSlider.value = 0.1f;
 	}
 
 	public void OpenSettings(){

@@ -30,13 +30,14 @@ public class AudioVisualizer : MonoBehaviour {
 	void Update() {
 		if(dataStreamer.modeValue==0){
 		// initialize our float array
+			GameObject.Find("Microphone").GetComponent<AudioSource>().volume = 1;
 		float[] spectrum = new float[numberOfSamples];
 		spectrumData=0f;
 
 		// populate array with fequency spectrum data
 		GetComponent<AudioSource>().GetSpectrumData(spectrum, 0, fftWindow);
 
-
+		spectraLoader();
 		// loop over audioSpectrumObjects and modify according to fequency spectrum data
 		// this loop matches the Array element to an object on a One-to-One basis.
 		for(int i = 0; i < audioSpectrumObjects.Length; i++)
@@ -55,6 +56,9 @@ public class AudioVisualizer : MonoBehaviour {
 		}
 		spectrumData= Mathf.Sqrt(spectrumData);
 		//dbg3.text= ""+spectrumData;
+		}else{
+			GameObject.Find("Microphone").GetComponent<AudioSource>().volume = 0;
+
 		}
 	}
 
@@ -64,6 +68,7 @@ public class AudioVisualizer : MonoBehaviour {
 
 	public void spectraLoader(){
 		if(dataStreamer.modeValue==0){
+			
 			foreach(Transform child in audioContainer.transform.GetComponentsInChildren<Transform>())
 			{
 				if(child.name=="SpectrumObject"){

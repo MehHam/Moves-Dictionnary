@@ -12,7 +12,7 @@ public class dataStreamer : MonoBehaviour {
 	public Slider sldr;
 	public InputField IField;
 	public static int modeValue;
-	public static List<string> modesInputs= new List<string> {"Audio", "Gyro", "Compass", "Accelero", "Tactile"};
+	public static List<string> modesInputs= new List<string> {"Audio", "Gyro", "Compass", "Accelero", "Tactile", /*"Movuino"*/};
 	public static string modeLabel;
 	public static string nameLabel;
 
@@ -39,6 +39,7 @@ public class dataStreamer : MonoBehaviour {
 		modeLabel= modesInputs[modeValue];
 
 		data = dataStream(modeValue);
+
 	}
 
 	public Vector3 dataStream(int valeur){
@@ -52,7 +53,7 @@ public class dataStreamer : MonoBehaviour {
 			break;
 
 		case 3:
-			dat=Vector3.one;//Input.acceleration;
+			dat= gyro.gravity;
 			break;
 
 		case 2:

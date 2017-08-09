@@ -24,9 +24,6 @@ public class nouveSequence : MonoBehaviour {
 
 		labS=new LabelsSequence("","","");
 
-
-	
-
 	}
 	// Use this for initialization
 

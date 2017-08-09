@@ -7,6 +7,8 @@ public class PlayerPrefsManager : MonoBehaviour {
 	const string SENSITIVITY_KEY = "sensitivity";
 	const string THRESHOLD_KEY = "threshold";
 
+
+
 	public static void SetMicrophone (int mic) {
 		PlayerPrefs.SetInt (MICROPHONE_KEY, mic);
 	}
